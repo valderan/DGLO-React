@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './header.sass';
 
@@ -8,18 +9,24 @@ function Header() {
         <header>
             <ul className="header">
                 <li className="header__item">
-                    <a href="#">
+                    <Link to="/">
                         <img src="logo/Logo.svg" alt="logo"/>
-                    </a>
+                    </Link>
                 </li>
                 <li className="header__item">
-                    <a href="#">Our coffee</a>
+                    <Link to="/ourcoffee"> 
+                        Our coffee
+                    </Link>
                 </li>
                 <li className="header__item">
-                    <a href="#">For your pleasure</a>
+                    <Link to="/pleasure"> 
+                        For your pleasure
+                    </Link>
                 </li>
                 <li className="header__item">
-                    <a href="#">Contact us</a>
+                    <Link to="/contact"> 
+                        Contact us
+                    </Link>
                 </li>
             </ul>
         </header>

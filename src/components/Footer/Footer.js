@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -8,15 +9,15 @@ function Footer() {
                     <div className="col-lg-5 offset-lg-4">
                         <ul className="footer">
                             <li className="footer__item">
-                                <a href="#">
+                                <Link to="/">
                                     <img src="logo/Logo_black.svg" alt="logo"/>
-                                </a>
+                                </Link>
                             </li>
                             <li className="footer__item">
-                                <a href="#">Our coffee</a>
+                                <Link to="/ourcoffee">Our coffee</Link>
                             </li>
                             <li className="footer__item">
-                                <a href="#">For your pleasure</a>
+                                <Link to="/pleasure">For your pleasure</Link>
                             </li>
                         </ul>
                     </div>
