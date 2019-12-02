@@ -1,11 +1,20 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+
+import { MainPage } from '../pages';
 import './App.css';
+
 
 function App() {
   return (
-    <div>
-      Works COOOOl
-    </div>
+    <>
+      <Switch>
+        
+        <Route path='/' exact component={MainPage} />  
+      
+      </Switch>
+    
+    </>
   );
 }
 
