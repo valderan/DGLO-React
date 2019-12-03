@@ -1,2 +1,2 @@
-import CoffeeServiceContext from './with-coffee-service';
-export default CoffeeServiceContext;
+import WithCoffeeService from './with-coffee-service';
+export default WithCoffeeService;

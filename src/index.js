@@ -9,10 +9,13 @@ import CoffeeService from './services/coffee-service';
 import CoffeeServiceContext from './components/Coffee-service-context/';
 
 import './index.css';
+import './index.sass';
+
+const coffeeService = new CoffeeService();
 
 ReactDOM.render(
     <ErrorBoundry>
-        <CoffeeServiceContext.Provider value={CoffeeService}>
+        <CoffeeServiceContext.Provider value={coffeeService}>
             <Router>
                 <App />
             </Router>

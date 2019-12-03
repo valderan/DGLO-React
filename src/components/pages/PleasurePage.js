@@ -1,11 +1,10 @@
 import React from 'react';
-import Header from '../Header';
-import Footer from '../Footer';
+import PleasurePageView from '../PleasurePage_view';
 
 function PleasurePage () {
     return (
         <>
-            For your pleasure
+            <PleasurePageView />
         </>
     )
 }

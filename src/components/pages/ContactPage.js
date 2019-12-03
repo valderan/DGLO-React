@@ -1,13 +1,10 @@
 import React from 'react';
-import Header from '../Header';
-import Footer from '../Footer';
+import ContactPageView from '../ContactPage_view';
 
 function ContactPage () {
     return (
         <>
-            <Header />
-            Contact
-            <Footer />
+            <ContactPageView />
         </>
     )
 }

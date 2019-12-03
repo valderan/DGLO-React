@@ -2,6 +2,7 @@
   "name": "diploma",
   "version": "0.1.0",
   "private": true,
+  "proxy":"http://localhost:3333",
   "dependencies": {
     "bootstrap": "^4.4.1",
     "node-sass": "^4.13.0",
@@ -12,7 +13,9 @@
     "reactstrap": "^8.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run react\" \"npm run server\"",
+    "react": "react-scripts start",
+    "server": "json-server --watch db.json --port 3333",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -31,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0"
   }
 }

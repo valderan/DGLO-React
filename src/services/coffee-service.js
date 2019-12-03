@@ -59,12 +59,13 @@ class Buffer {
 
 }
 
-export default class RestoService {
+export default class CoffeeService {
     
     constructor() {
         // base URL api
         // start server: json-server --watch ./src/db.json --port 3333
-        this.apiURL = 'http://localhost:3333'
+        //this.apiURL = 'http://localhost:3333'
+        this.apiURL = '';
     }
 
     // base method for work with api 
