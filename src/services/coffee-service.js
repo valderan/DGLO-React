@@ -88,6 +88,10 @@ export default class CoffeeService {
         return await res.json();
     }
 
+    uploadMessage = async ( body, url = '/contacts') => {
+        return await this.getUrl(url, body);
+    }
+
     static _valid = (str = '') => {
         return str.length !== 0 ? str : 'no data';
     }

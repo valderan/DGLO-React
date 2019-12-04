@@ -1,12 +1,13 @@
 import React from 'react';
 import ContactPageView from '../ContactPage_view';
+import WithCoffeeService from '../hoc/';
 
-function ContactPage () {
+function ContactPage ({ CoffeeService }) {
     return (
         <>
-            <ContactPageView />
+            <ContactPageView CoffeeService={CoffeeService}/>
         </>
     )
 }
 
-export default ContactPage;
+export default WithCoffeeService()(ContactPage);
