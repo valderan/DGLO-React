@@ -1,12 +1,79 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
+import Spinner from '../Spinner';
 
 import './mainpage.sass';
 
-function MainPageView() {
+function MainPageView({items, isload}) {
+
+    
+
     return(
         <>
+            <PreviewBlock />
+            
+            <AboutBlock />
+        
+            <BestBlock>
+                
+                {
+                    items.map( (item, index) => {
+                        return(
+                            <BestItem key={index} item={item} loading={isload} />
+                        )
+                    })
+                }
+
+            </BestBlock>
+                
+            <Footer />
+        </>
+    )
+}
+
+export default MainPageView;
+
+function BestItem({item, loading}) {
+    const { name, url, price } = item;
+
+    return (
+        <> 
+        <div className="best__item">
+            {(!loading) ?
+            <>
+                    <img src={url} alt="coffee" />
+                    <div className="best__item-title">
+                        {name}    
+                    </div>
+                    <div className="best__item-price">{price}</div>
+            </>        
+            : <Spinner />}
+        </div>
+        </>
+    )
+}
+
+function BestBlock({children}) {
+    return (
+        <section className="best">
+            <div className="container">
+                <div className="title">Our best</div>
+                <div className="row">
+                    <div className="col-lg-10 offset-lg-1">
+                        <div className="best__wrapper">
+                            {children}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+function PreviewBlock() {
+    return (
         <div className="preview">
            <div className="container">
                <div className="row">
@@ -25,11 +92,17 @@ function MainPageView() {
                      <img className="beanslogo" src="logo/Beans_logo.svg" alt="Beans logo"/>
                      <div className="preview__subtitle">We makes every day full of energy and taste</div>
                      <div className="preview__subtitle">Want to try our beans?</div>
-                     <a href="#" className="preview__btn">More</a>
+                     <Link to="/ourcoffee" className="preview__btn"> 
+                        <span>More</span>
+                    </Link>
                 </div>
             </div>
         </div>
-        
+    )
+}
+
+function AboutBlock() {
+    return(
         <section className="about">
         <div className="container">
                 <div className="row">
@@ -53,43 +126,5 @@ function MainPageView() {
                 </div>
             </div>
         </section>
-        
-        <section className="best">
-        <div className="container">
-            <div className="title">Our best</div>
-            <div className="row">
-                <div className="col-lg-10 offset-lg-1">
-                    <div className="best__wrapper">
-                        <div className="best__item">
-                            <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee" />
-                            <div className="best__item-title">
-                                Solimo Coffee Beans 2kg
-                            </div>
-                            <div className="best__item-price">10.73$</div>
-                        </div>
-                        <div className="best__item">
-                            <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee" />
-                            <div className="best__item-title">
-                                Presto Coffee Beans 1kg
-                            </div>
-                            <div className="best__item-price">15.99$</div>
-                        </div>
-                        <div className="best__item">
-                            <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee" />
-                            <div className="best__item-title">
-                                AROMISTICO Coffee 1kg
-                            </div>
-                            <div className="best__item-price">6.99$</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </section>
-        
-        <Footer />
-        </>
     )
 }
-
-export default MainPageView;

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import pic1 from '../ContactPage_view/img/pic-1.png';
 import pic2 from '../ProductPage_view/img/Beans_logo_dark.svg';
 import arrow from '../ContactPage_view/img/back-arrow.png';
@@ -93,8 +92,6 @@ export default class ContactPageView extends React.Component {
                             notifyStatus: true,
                             notifyString: 'Что-то пошло не так! Попробуйте еще раз!'})
                     })
-
-
     }
 
     render() {
@@ -182,7 +179,6 @@ export default class ContactPageView extends React.Component {
         )
     }
 }
-
 
 function Wrap({ text }) {
     return (
