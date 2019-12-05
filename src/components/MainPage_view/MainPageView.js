@@ -20,6 +20,7 @@ function MainPageView({items, isload}) {
                 
                 {
                     items.map( (item, index) => {
+                       
                         return(
                             <BestItem key={index} item={item} loading={isload} />
                         )
@@ -37,17 +38,19 @@ export default MainPageView;
 
 function BestItem({item, loading}) {
     const { name, url, price } = item;
-
+    const productUrl = `/product/${name}`
     return (
         <> 
         <div className="best__item">
             {(!loading) ?
             <>
+                <Link to={productUrl} className="nolink">
                     <img src={url} alt="coffee" />
                     <div className="best__item-title">
                         {name}    
                     </div>
                     <div className="best__item-price">{price}</div>
+                </Link>
             </>        
             : <Spinner />}
         </div>
@@ -76,14 +79,11 @@ function PreviewBlock() {
     return (
         <div className="preview">
            <div className="container">
-               <div className="row">
-                    <div className="row">
-                        <div className="col-lg-12 col-sm-12 col-md-12">
-                        {/* <div> */}
-                            <Header />
-                        </div> 
-                    
-                    </div>
+                <div className="row">
+                    <div className="col-lg-12 col-sm-12 col-md-12">
+                        <Header />
+                    </div> 
+                
                 </div>
             </div>
             <div className="row">

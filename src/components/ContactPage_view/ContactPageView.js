@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React from 'react';
 
 import pic1 from '../ContactPage_view/img/pic-1.png';
@@ -13,6 +14,7 @@ import Error from '../Error';
 import { Fade } from 'reactstrap';
 import InputMask from 'react-input-mask';
 
+
 export default class ContactPageView extends React.Component {
     state = {
         upload: false,
@@ -20,7 +22,7 @@ export default class ContactPageView extends React.Component {
         error: false,
         notifyStatus: false,
         notifyString: 'no data',
-        phone: '7', 
+        phone: '', 
         name:'',
         email:'',
         message:''
@@ -33,7 +35,9 @@ export default class ContactPageView extends React.Component {
 
     nameChange = (e) => {
         this.setState({notifyStatus:false});
-        this.setState({name: e.target.value});
+        if (e.target.value.length <= 20) {
+            this.setState({name: e.target.value});
+        }    
     }
 
     emailChange = (e) => {
@@ -46,6 +50,13 @@ export default class ContactPageView extends React.Component {
         this.setState({message: e.target.value});
     }
 
+    validateEmail = (email) => {
+        if(!email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{2,}\.[a-z]{2,}$/i)) {
+           return false;
+        }
+        return true
+     }
+
     submit = () =>{
 
         this.setState({notifyStatus: false})
@@ -57,9 +68,16 @@ export default class ContactPageView extends React.Component {
             return
         }
 
-        if (email.length === 0) {
-            this.setState({notifyStatus: true, notifyString: 'Зполните поле: E-mail'});
+        if (name.length < 2) {
+            this.setState({notifyStatus: true, notifyString: 'Поле: NAME должно соджержать минимум 2 символа'});
             return
+        }
+
+        if (!this.validateEmail(email)) {
+            this.setState({notifyStatus: true, notifyString: 'Некорректный E-mail'});
+            return
+        } else {
+
         }
         
         if (message.length === 0) {
@@ -77,7 +95,7 @@ export default class ContactPageView extends React.Component {
                             error: false,
                             notifyStatus: false,
                             notifyString: '',
-                            phone: '7', 
+                            phone: '', 
                             name:'',
                             email:'',
                             message:''
@@ -140,7 +158,7 @@ export default class ContactPageView extends React.Component {
                         <p>
                             <span className="form-label">Phone</span>
                         </p>
-                        <InputMask mask="+9(999) 999-9999" maskplaceholder="-" value={phone} onChange={this.phoneChange}/>
+                        <InputMask mask="+9(999) 999-9999" maskplaceholder=" " value={phone} onChange={this.phoneChange} placeholder="+7(___) ___-____" />
                     </div>  
                     <div className="form-string-area">
                         <p>

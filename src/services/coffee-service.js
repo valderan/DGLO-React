@@ -36,6 +36,16 @@ export default class CoffeeService {
         return await res;
     }
 
+    getCoffee = async (url = '/coffee') => {
+        const res = await this.getUrl(url);
+        return await res;
+    }
+
+    getGoods = async (url = '/goods') => {
+        const res = await this.getUrl(url);
+        return await res;
+    }
+
     static _valid = (str = '') => {
         return str.length !== 0 ? str : 'no data';
     }
