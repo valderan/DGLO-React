@@ -8,7 +8,6 @@ import './coffeepage.sass';
 
 export default class OurCoffeePageView extends React.Component {
 
-
     render () {
 
         const {items, isLoad, countryFilter, searchFilter} = this.props;
@@ -38,33 +37,32 @@ export default class OurCoffeePageView extends React.Component {
 
 }
 
-
 function Filter({countryFilter, searchFilter}) {
     return (
-    <div className="row">
-        <div className="col-lg-4 offset-2">
-            <form action="#" className="shop__search">
-                <label className="shop__search-label" htmlFor="filter">Looking for</label>
-                <input onChange={ (e) => { searchFilter(e.target.value) }} 
-                        onClick={ (e) => { searchFilter(e.target.value) }}
-                        id="filter" type="text" 
-                        placeholder="start typing here..." 
-                        className="shop__search-input"/>
-            </form>
-        </div>
-        <div className="col-lg-4">
-            <div className="shop__filter">
-                <div className="shop__filter-label">
-                    Or filter
-                </div>
-                <div className="shop__filter-group">
-                    <button onClick={() => countryFilter('Brazil')} className="shop__filter-btn">Brazil</button>
-                    <button onClick={() => countryFilter('Kenya')} className="shop__filter-btn">Kenya</button>
-                    <button onClick={() => countryFilter('Columbia')} className="shop__filter-btn">Columbia</button>
+        <div className="row">
+            <div className="col-lg-4 offset-2">
+                <form action="#" className="shop__search">
+                    <label className="shop__search-label" htmlFor="filter">Looking for</label>
+                    <input onChange={ (e) => { searchFilter(e.target.value) }} 
+                            onClick={ (e) => { searchFilter(e.target.value) }}
+                            id="filter" type="text" 
+                            placeholder="start typing here..." 
+                            className="shop__search-input"/>
+                </form>
+            </div>
+            <div className="col-lg-4">
+                <div className="shop__filter">
+                    <div className="shop__filter-label">
+                        Or filter
+                    </div>
+                    <div className="shop__filter-group">
+                        <button onClick={() => countryFilter('Brazil')} className="shop__filter-btn">Brazil</button>
+                        <button onClick={() => countryFilter('Kenya')} className="shop__filter-btn">Kenya</button>
+                        <button onClick={() => countryFilter('Columbia')} className="shop__filter-btn">Columbia</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     )
 }
 
@@ -132,6 +130,7 @@ function ContentPage({children}) {
                 </div>
                 <div className="line"></div>
                 <div className="bottom30"></div>
+    
                 {children}
                 
             </div>

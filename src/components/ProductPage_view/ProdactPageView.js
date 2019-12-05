@@ -1,19 +1,73 @@
 import React from 'react';
-import pic1 from '../ProductPage_view/img/coffee_item.jpg';
 import pic2 from '../ProductPage_view/img/Beans_logo_dark.svg';
 
 
 import Header from '../Header';
 import Footer from '../Footer';
-
+import NotFound from '../NotFound';
+import Spinner from '../Spinner';
 
 
 export default class ProductPageView extends React.Component {
 
     render() {
+
+        const { item, error, load } = this.props;
+        
+        let bodyString = <NotFound />
+
+        if (!error) {
+            bodyString = (load) ? <Spinner /> : <ItemInfo item={item} />
+        }
+        
         return(
             <>
-            
+                <PageContent>
+                   {bodyString}
+                </PageContent>
+
+                <Footer />
+            </>
+        )
+    }
+
+}
+
+function ItemInfo({item}) {
+
+    const { country, price, url, description } = item;
+    
+    return(
+        <>
+            <div className="row">
+                <div className="col-lg-5 offset-1">
+                    <img className="shop__girl img" src={url} alt="coffee_item"/>
+                </div>
+                <div className="col-lg-4">
+                <div className="title">About it</div>
+                    <img className="beanslogo" src={pic2} alt="Beans logo"/>
+                    <div className="shop__point">
+                        <span>Country:</span>
+                        {country}
+                    </div>
+                    <div className="shop__point">
+                        <span>Description:</span>
+                        {description}
+                    </div>
+                    <div className="shop__point">
+                        <span>Price:</span>
+                        <span className="shop__point-price">{price}</span>
+                    </div>
+                </div>
+            </div> 
+        </>
+    )
+}
+
+
+function PageContent({children}) {
+    return (
+        <>
             <div className="banner">
                 <div className="container">
                     <div className="row">
@@ -26,34 +80,9 @@ export default class ProductPageView extends React.Component {
             </div>
             <section className="shop">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-5 offset-1">
-                            <img className="shop__girl" src={pic1} alt="coffee_item"/>
-                        </div>
-                        <div className="col-lg-4">
-                            <div className="title">About it</div>
-                            <img className="beanslogo" src={pic2} alt="Beans logo"/>
-                            <div className="shop__point">
-                                <span>Country:</span>
-                                Brazil
-                            </div>
-                            <div className="shop__point">
-                                <span>Description:</span>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </div>
-                            <div className="shop__point">
-                                <span>Price:</span>
-                                <span className="shop__point-price">16.99$</span>
-                            </div>
-                        </div>
-                    </div>
+                    {children}
                 </div>
             </section>
-
-            <Footer />
-            </>
-        )
-    }
-
+        </>
+    )
 }

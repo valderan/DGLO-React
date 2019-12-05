@@ -10,7 +10,6 @@ function OurCoffeePage ({ CoffeeService }) {
     const [ filterStatus, setFilter] = useState(false);
     const [ itemList, setItemList] = useState([]);
    
-
     useEffect(() => {
         
         if (!load) return;
