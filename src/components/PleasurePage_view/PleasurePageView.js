@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 import Item from '../Item';
+import Error from '../Error';
 
 import coffee_cup from '../PleasurePage_view/img/coffee_cup.jpg';
 
@@ -11,7 +12,9 @@ export default class PleasurePageView extends React.Component {
 
     render() {
 
-        const {items, isLoad} = this.props;
+        const {items, isLoad, error} = this.props;
+
+        if (error) return <Error />;
 
         return(
             <>

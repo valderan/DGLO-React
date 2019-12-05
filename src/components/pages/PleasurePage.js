@@ -7,6 +7,7 @@ function PleasurePage ({ CoffeeService }) {
 
     const [ items, setItems ] = useState([]);
     const [ load, isLoad ] = useState(true);
+    const [ error, setError] = useState(false);
    
 
     useEffect(() => {
@@ -16,18 +17,19 @@ function PleasurePage ({ CoffeeService }) {
         CoffeeService.getGoods()
         .then(res => {
             setItems(res);
-            isLoad(false)
+            isLoad(false);
+            setError(false);
         })
         .catch(err => {
             console.error(err);
-            throw new Error(err)
+            setError(true);
         })
 
     },[CoffeeService, load]);
 
     return (
         <>
-            <PleasurePageView  items={items} isLoad={load}/>
+            <PleasurePageView  items={items} isLoad={load} error={error}/>
         </>
     )
 }

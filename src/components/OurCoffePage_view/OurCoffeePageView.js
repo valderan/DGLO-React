@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import Item from '../Item';
+import Error from '../Error';
 
 import './coffeepage.sass';
 
@@ -10,7 +11,9 @@ export default class OurCoffeePageView extends React.Component {
 
     render () {
 
-        const {items, isLoad, countryFilter, searchFilter} = this.props;
+        const {items, isLoad, countryFilter, searchFilter, error} = this.props;
+
+        if (error) return <Error />
 
         return (        
             <>

@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import Spinner from '../Spinner';
+import Error from '../Error';
 
 import './mainpage.sass';
 
-function MainPageView({items, isload}) {
+function MainPageView({items, isload, error}) {
 
-    
+    if (error) return <Error />
 
     return(
         <>

@@ -37,6 +37,9 @@ function ItemInfo({item}) {
 
     const { country, price, url, description } = item;
     
+    const showDescription = (description.length > 200) ? description.substr(0,200) + '...' : description,
+        fullText = '<span>Description: </span>' + description;
+
     return(
         <>
             <div className="row">
@@ -50,13 +53,13 @@ function ItemInfo({item}) {
                         <span>Country:</span>
                         {country}
                     </div>
-                    <div className="shop__point">
-                        <span>Description:</span>
-                        {description}
+                    <div className="shop__point" onClick={ e => e.target.innerHTML = fullText }>
+                        <span>Description: </span>
+                        {showDescription}
                     </div>
                     <div className="shop__point">
                         <span>Price:</span>
-                        <span className="shop__point-price">{price}</span>
+                        <span className="shop__point-price"> {price}</span>
                     </div>
                 </div>
             </div> 

@@ -9,6 +9,7 @@ function OurCoffeePage ({ CoffeeService }) {
     const [ filter, filterLoad] = useState([]);
     const [ filterStatus, setFilter] = useState(false);
     const [ itemList, setItemList] = useState([]);
+    const [ error, setError] = useState(false);
    
     useEffect(() => {
         
@@ -19,10 +20,11 @@ function OurCoffeePage ({ CoffeeService }) {
             setItems(res);
             setItemList(res);
             isLoad(false)
+            setError(false);
         })
         .catch(err => {
             console.error(err);
-            throw new Error(err)
+            setError(true);
         })
 
     },[CoffeeService, load]);
@@ -59,7 +61,8 @@ function OurCoffeePage ({ CoffeeService }) {
                 items={itemList} 
                 isLoad={load} 
                 countryFilter={countryFilter} 
-                searchFilter={searchFilter}/>
+                searchFilter={searchFilter}
+                error={error}/>
         </>
     )
 }
