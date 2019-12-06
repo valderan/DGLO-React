@@ -37,8 +37,8 @@ function ItemInfo({item}) {
 
     const { country, price, url, description } = item;
     
-    const showDescription = (description.length > 200) ? description.substr(0,197) + '...' : description,
-        fullText = '<span>Description: </span>' + description;
+    let showDescription = (description.length > 200) ? description.substr(0,197) + '...' : description,
+        fullText = '<span>Description: </span>' + description;   
 
     return(
         <>
@@ -53,8 +53,16 @@ function ItemInfo({item}) {
                         <span>Country:</span>
                         {country}
                     </div>
-                    <div className="shop__point" onClick={ e => e.target.innerHTML = fullText }>
-                        <span>Description: </span>
+                    <div className="shop__point add-cursor" onClick={ e => {
+
+                        e.target.classList.toggle("fulltext");
+                        if (e.target.classList.contains("fulltext")) {    
+                            e.target.innerHTML = fullText
+                        } else {
+                            e.target.innerHTML = "<span>Description: </span>" + showDescription
+                        }
+                            
+                    }}> <span>Description: </span>
                         {showDescription}
                     </div>
                     <div className="shop__point">
