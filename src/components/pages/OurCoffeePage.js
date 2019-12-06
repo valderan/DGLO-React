@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import WithCoffeeService from '../hoc/';
 import OurCoffeePageView from '../OurCoffePage_view';
 
+import { DATA_LOADING_ERROR } from '../Error/Error.js'
+
 function OurCoffeePage ({ CoffeeService }) {
 
     const [ items, setItems ] = useState([]);
@@ -10,6 +12,7 @@ function OurCoffeePage ({ CoffeeService }) {
     const [ filterStatus, setFilter] = useState(false);
     const [ itemList, setItemList] = useState([]);
     const [ error, setError] = useState(false);
+    const [ errorString, setErrorString] = useState('');
    
     useEffect(() => {
         
@@ -25,6 +28,7 @@ function OurCoffeePage ({ CoffeeService }) {
         .catch(err => {
             console.error(err);
             setError(true);
+            setErrorString(DATA_LOADING_ERROR);
         })
 
     },[CoffeeService, load]);
@@ -62,7 +66,8 @@ function OurCoffeePage ({ CoffeeService }) {
                 isLoad={load} 
                 countryFilter={countryFilter} 
                 searchFilter={searchFilter}
-                error={error}/>
+                error={error}
+                errorString={errorString}/>
         </>
     )
 }

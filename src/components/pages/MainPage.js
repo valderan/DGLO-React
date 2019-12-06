@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import MainPageView from '../MainPage_view';
 import WithCoffeeService from '../hoc/';
 
+import { DATA_LOADING_ERROR } from '../Error/Error.js'
+
 function MainPage({ CoffeeService }) {
 
     const [ items, setItems ] = useState([]);
     const [ load, isLoad ] = useState(true);
     const [ error, setError ] = useState(false);
-
+    const [ errorString, setErrorString] = useState('');
+   
 
     useEffect(() => {
         
@@ -22,6 +25,7 @@ function MainPage({ CoffeeService }) {
         .catch(err => {
             console.error(err);
             setError(true);
+            setErrorString(DATA_LOADING_ERROR);
         })
 
     },[CoffeeService, load]);
@@ -30,7 +34,7 @@ function MainPage({ CoffeeService }) {
 
     return(
         <>
-            <MainPageView items={items} isload={load} error={error}/>
+            <MainPageView items={items} isload={load} error={error}  errorString={errorString}/>
         </>
     )
 }

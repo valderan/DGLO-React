@@ -7,9 +7,9 @@ import Error from '../Error';
 
 import './mainpage.sass';
 
-function MainPageView({items, isload, error}) {
+function MainPageView({items, isload, error, errorString}) {
 
-    if (error) return <Error />
+    
 
     return(
         <>
@@ -20,6 +20,8 @@ function MainPageView({items, isload, error}) {
             <BestBlock>
                 
                 {
+                    (error) ? 
+                         <Error errorString={errorString}/> :
                     items.map( (item, index) => {
                        
                         return(

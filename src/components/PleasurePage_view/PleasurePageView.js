@@ -12,19 +12,19 @@ export default class PleasurePageView extends React.Component {
 
     render() {
 
-        const {items, isLoad, error} = this.props;
-
-        if (error) return <Error />;
+        const {items, isLoad, error, errorString} = this.props;
 
         return(
             <>
                 <ContentPage>
                     {
-                        items.map( (item, index) => {
-                            return(
-                                <Item key={index} item={item} loading={isLoad} />
-                            )
-                        })
+                        (error) ? 
+                            <Error errorString={errorString}/> :
+                            items.map( (item, index) => {
+                                return(
+                                    <Item key={index} item={item} loading={isLoad} />
+                                )
+                            })
                     }
                 </ContentPage>
             </>

@@ -11,9 +11,7 @@ export default class OurCoffeePageView extends React.Component {
 
     render () {
 
-        const {items, isLoad, countryFilter, searchFilter, error} = this.props;
-
-        if (error) return <Error />
+        const {items, isLoad, countryFilter, searchFilter, error, errorString} = this.props;
 
         return (        
             <>
@@ -22,13 +20,16 @@ export default class OurCoffeePageView extends React.Component {
                     <Filter countryFilter={countryFilter} searchFilter={searchFilter}/>
 
                     <ProductsList> 
-                        
+    
                         {
-                            items.map( (item, index) => {
-                                return(
-                                    <WrapLink key={index} isLoad={isLoad} item={item}/>
-                                )
-                            })
+                            (error) ? 
+                                <Error errorString={errorString}/> :
+                                items.map( (item, index) => {
+                                    return(
+                                        <WrapLink key={index} isLoad={isLoad} item={item}/>
+                                    )
+                                })
+                            
                         }
 
                     </ProductsList>

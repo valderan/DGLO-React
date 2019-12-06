@@ -37,7 +37,7 @@ function ItemInfo({item}) {
 
     const { country, price, url, description } = item;
     
-    const showDescription = (description.length > 200) ? description.substr(0,200) + '...' : description,
+    const showDescription = (description.length > 200) ? description.substr(0,197) + '...' : description,
         fullText = '<span>Description: </span>' + description;
 
     return(
