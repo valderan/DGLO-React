@@ -49,6 +49,4 @@ export default class CoffeeService {
     static _valid = (str = '') => {
         return str.length !== 0 ? str : 'no data';
     }
-    
-
 }
