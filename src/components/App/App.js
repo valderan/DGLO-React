@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
 
-import { MainPage, OurCoffeePage, PleasurePage, ContactPage, ProductPage } from '../pages';
+import { MainPage, OurCoffeePage, PleasurePage, ContactPage, ProductPage, PageNotFound } from '../pages';
 import './App.css';
 
 
@@ -20,6 +20,7 @@ function App() {
                                 return <ProductPage productId={id}/>
                             }
                 } />
+        <Route path="*" component={PageNotFound}/>
       </Switch>
     
     </>
