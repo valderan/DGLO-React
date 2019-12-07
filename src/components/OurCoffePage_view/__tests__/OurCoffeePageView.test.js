@@ -14,7 +14,7 @@ describe('Testing <OurCoffeePageView />', () => {
 
   it('Check prop [items]', () => {
     const coffePage = shallow(<OurCoffeePageView {...defaultProps}/>);
-    expect(coffePage.props.items).toBeArray();
+    expect(coffePage.prop('items')).toBeArray();
   })
 
 })
