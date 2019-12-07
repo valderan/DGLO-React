@@ -1,3 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing <OurCoffeePageView /> urCoffeePageView rendered correctly 1`] = `ShallowWrapper {}`;
+exports[`Testing <OurCoffeePageView /> urCoffeePageView rendered correctly 1`] = `
+<Fragment>
+  <ContentPage>
+    <Filter
+      countryFilter={[Function]}
+    />
+    <ProductsList>
+      <WrapLink
+        isLoad={false}
+        item={
+          Object {
+            "country": "Brazil",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet.",
+            "name": "Death Wish Bean",
+            "price": "12.99$",
+            "url": "https://images-na.ssl-images-amazon.com/images/I/91DlZZBjxzL._SX522_.jpg",
+          }
+        }
+        key="0"
+      />
+      <WrapLink
+        isLoad={false}
+        item={
+          Object {
+            "country": "Brazil",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet.",
+            "name": "AROMISTICO Coffee 1 kg",
+            "price": "6.99$",
+            "url": "https://images-na.ssl-images-amazon.com/images/I/71qBQnpQFYL._SL1500_.jpg",
+          }
+        }
+        key="1"
+      />
+      <WrapLink
+        isLoad={false}
+        item={
+          Object {
+            "country": "Kenya",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet.",
+            "name": "Solimo Coffee Beans 2 kg",
+            "price": "10.73$",
+            "url": "https://images-na.ssl-images-amazon.com/images/I/815O9ktyfUL._SL1500_.jpg",
+          }
+        }
+        key="2"
+      />
+      <WrapLink
+        isLoad={false}
+        item={
+          Object {
+            "country": "Kenya",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet.",
+            "name": "Black Rifle Coffee",
+            "price": "19.75$",
+            "url": "https://images-na.ssl-images-amazon.com/images/I/91vwF6Kh8IL._SX522_.jpg",
+          }
+        }
+        key="3"
+      />
+      <WrapLink
+        isLoad={false}
+        item={
+          Object {
+            "country": "Columbia",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet.",
+            "name": "Presto Coffee Beans 1 kg",
+            "price": "15.99$",
+            "url": "https://images-na.ssl-images-amazon.com/images/I/91Ryk2gKejL._SL1500_.jpg",
+          }
+        }
+        key="4"
+      />
+      <WrapLink
+        isLoad={false}
+        item={
+          Object {
+            "country": "Columbia",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet.",
+            "name": "Organic Coffee One Cup",
+            "price": "24.99$",
+            "url": "https://images-na.ssl-images-amazon.com/images/I/51M2fmEXTIL.jpg",
+          }
+        }
+        key="5"
+      />
+    </ProductsList>
+  </ContentPage>
+</Fragment>
+`;
